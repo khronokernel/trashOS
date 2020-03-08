@@ -58,7 +58,7 @@ The main ones are as follows:
 * [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)
 * [AppleALC](https://github.com/acidanthera/AppleALC/releases) **or** [VoodooHDA](https://sourceforge.net/projects/voodoohda/)
 
-Ethernet gets a bit more compkicated as we're going into the depths of legacy hackintosh kexts, so support on Catalina can be a bit sketchy:
+Ethernet gets a bit more complicated as we're going into the depths of legacy hackintosh kexts, so support on Catalina can be a bit sketchy:
 
 * [AppleIntelE1000e](https://github.com/chris1111/AppleIntelE1000e/releases)
 * [IntelMausiEthernet](https://github.com/Mieze/IntelMausiEthernet)
