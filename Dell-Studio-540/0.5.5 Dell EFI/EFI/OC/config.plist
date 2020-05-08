@@ -263,6 +263,22 @@
 				<key>BundlePath</key>
 				<string>VoodooHDA.kext</string>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string></string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+				<key>Enabled</key>
+				<true/>
+				<key>MinKernel</key>
+				<string></string>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/telemetrap</string>
+				<key>BundlePath</key>
+				<string>telemetrap.kext</string>
+			</dict>
 		</array>
 		<key>Block</key>
 		<array>
@@ -319,8 +335,7 @@
 	<key>Misc</key>
 	<dict>
 		<key>BlessOverride</key>
-		<array>
-		</array>
+		<array/>
 		<key>Boot</key>
 		<dict>
 			<key>ConsoleBehaviourOs</key>

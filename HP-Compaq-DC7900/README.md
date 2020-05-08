@@ -4,7 +4,7 @@
 ```
 CPU:     Intel Core2 Quad Q8200
 MOBO:    HP Compaq DC7900 SFF
-RAM:     1GB(2x512MB 666Mhz)
+RAM:     1GB(2x512MB 666MHz)
 GPU:     GT 710
 NET:     Intel 82567LM
 AUDIO:   AD1884A
@@ -41,6 +41,7 @@ These are just the essential ones to get booting and have proper functionality
 * [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)
 * [VoodooHDA](https://sourceforge.net/projects/voodoohda/)
 * [AppleIntelE1000e](https://github.com/chris1111/AppleIntelE1000e/releases)
+* [telemetrap.kext](https://forums.macrumors.com/threads/mp3-1-others-sse-4-2-emulation-to-enable-amd-metal-driver.2206682/post-28447707)
 
 
 ## DSDT Edits

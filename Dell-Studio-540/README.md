@@ -4,7 +4,7 @@
 ```
 CPU:     Intel Core2 Duo E8500
 MOBO:    Dell Studio 540
-RAM:     8GB 800Mhz(2GBx4)
+RAM:     8GB 800MHz(2GBx4)
 AUDIO:   ALC888S
 GPU:     GT 710
 NET:     Realtek RTL8168
@@ -41,3 +41,4 @@ These are just the essential ones to get booting and have proper functionality
 * [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)
 * [VoodooHDA](https://sourceforge.net/projects/voodoohda/)
 * [RealtekRTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases)
+* [telemetrap.kext](https://forums.macrumors.com/threads/mp3-1-others-sse-4-2-emulation-to-enable-amd-metal-driver.2206682/post-28447707)
