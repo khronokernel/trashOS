@@ -1,4 +1,4 @@
-# HP Compaq DC7900 SFF
+# Dell Studio 540
 
 
 ```
