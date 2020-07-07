@@ -21,10 +21,15 @@ This repo is mainly used as a getting started with page with Core2 series hardwa
 
 * SMBIOS: `iMac10,1` or `iMac13,2`
    * Depends on the OS, Mojave+ doesn't support iMac10,1
+   * Note macOS Big Sur removed iMac14,3 and older, so will require iMac14,4 minimum
 * FadtEnableReset: `True`
    * Needed for proper shutdown/restarts
 * RebaseRegions: `True`
    * Only needed when running a custom DSDT like with the HP DC7900
+* Vault: `Optional`
+   * Required for booting unless you've sugned OpenCore yourself
+* ScanPolicy: `0`
+   * To show all drives at the OpenCore picker
 
 Besides that, everything else works as stock
 
