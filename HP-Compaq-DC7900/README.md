@@ -1,10 +1,9 @@
 # HP Compaq DC7900 SFF
 
-
 ```
 CPU:     Intel Core2 Quad Q8200
 MOBO:    HP Compaq DC7900 SFF
-RAM:     1GB(2x512MB 666MHz)
+RAM:     8GB(4x2GB 800MHz)
 GPU:     GT 710
 NET:     Intel 82567LM
 AUDIO:   AD1884A
@@ -15,7 +14,18 @@ BOOT:    OpenCore
 
 Works:
 
-* Catalina
+* Tested versions of macOS:
+  * OS X 10.5.0 (9a581)
+  * OS X 10.6.0 (10a432) and 10.6.7 (10J4139)
+  * OS X 10.7.0 (11A511)
+  * OS X 10.8.5 (12F37)
+  * OS X 10.9.5 (13F34)
+  * OS X 10.10.5 (14F27)
+  * OS X 10.11.6 (15G31)(Only tested installer)
+  * macOS 10.12.6 (16G29)
+  * macOS 10.13.6 (17G11023)
+  * macOS 10.14.0 (18A391)
+  * macOS 10.15.4 (19E242d)
 * Ethernet
 * Audio
 * Hardware Acceleration
@@ -26,7 +36,7 @@ Works:
 Doesn't work:
 
 * Sleep
-   * fixed if you setup an SSDT-CPUPM
+   * Fixed if you setup an SSDT-CPUPM
 * PS2 keyboard/Mouse
    * VoodooPS2 fixes this, haven't bothered to try
 * On-board iGPU
@@ -34,7 +44,7 @@ Doesn't work:
 
 ## Kexts
 
-These are just the essential ones to get booting and have proper functionality 
+These are just the essential ones to get booting and have proper functionality:
 
 * [Lilu](https://github.com/acidanthera/Lilu/releases)
 * [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases)
@@ -43,59 +53,15 @@ These are just the essential ones to get booting and have proper functionality
 * [AppleIntelE1000e](https://github.com/chris1111/AppleIntelE1000e/releases)
 * [telemetrap.kext](https://forums.macrumors.com/threads/mp3-1-others-sse-4-2-emulation-to-enable-amd-metal-driver.2206682/post-28447707)
 
+I've also set MaxKernels set to allow legacy booting with 32bit based kexts.
 
-## DSDT Edits
+## ACPI Hot Patches
 
-Main thing to note with the HP DC7900 series is that they have some IRQ conflicts, specifically that the HPET and RTC will take hold of IRQs that is needed for USB, Ethernet and Audio to work. To get around this, we give HPET some `IRQNoFlags` to play with and remove the IRQ on RTC
+Due to IRQ issues, you'll need the following:
 
-I've also included a sample DSDT that's been patched, it'll work on BIOS ver. 1.16 but I highly recommend you **do not use as-is** unless you have the exact same BIOS with exact same hardware configuration
+* [SSDT-CSR-HPET](/HP-Compaq-DC7900/0.6.1 HP EFI/EFI/OC/ACPI/SSDT-CSR-HPET.aml)
+* CRES to XCRES Patch under ACPI -> Patch:
+  * Find:      `48504554085F4849440C41D00103085F5549440A010843524553`
+  * Replace:   `48504554085F4849440C41D00103085F5549440A010858524553`
 
 
-**HPET:**
-```
-Device (HPET)
-{
-    Name (_HID, EisaId ("PNP0103") /* HPET System Timer */)  // _HID: Hardware ID
-    Name (_UID, One)  // _UID: Unique ID
-    Name (CRES, ResourceTemplate ()
-    {
-        IRQNoFlags ()
-            {3}
-        IRQNoFlags ()
-            {5}
-        IRQNoFlags ()
-            {7}
-        IRQNoFlags ()
-            {15}
-        Memory32Fixed (ReadWrite,
-            0xFED00000,         // Address Base
-            0x00000400,         // Address Length
-            )
-    })
-    Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
-    {
-        Return (CRES) /* \_SB_.PCI0.LPC_.HPET.CRES */
-    }
-
-    Method (_STA, 0, NotSerialized)  // _STA: Status
-    {
-        Return (0x0F)
-    }
-}
-```
-**RTC:**
-```
-Device (RTC)
-{
-    Name (_HID, EisaId ("PNP0B00") /* AT Real-Time Clock */)  // _HID: Hardware ID
-    Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
-    {
-        IO (Decode16,
-            0x0070,             // Range Minimum
-            0x0070,             // Range Maximum
-            0x00,               // Alignment
-            0x02,               // Length
-            )
-    })
-}
-```
