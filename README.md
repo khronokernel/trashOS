@@ -1,5 +1,7 @@
 # trashOS
 
+## Note: I do not actievly maintain this repo, for most up-to-date information please follow the [OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)
+
 This repo is mainly used as a getting started with page with Core2 series hardware running on OpenCore. There's also some sample EFIs for a few hardware configurations I've ran with:
 
 * [HP DC7900 SFF](/HP-Compaq-DC7900)
