@@ -116,21 +116,3 @@ Few SMBIOS to choose from:
    * Needed for seeing drives made by Bootcamp assistant
 * [PartitionDxeLegacy](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/PartitionDxeLegacy.efi)
   * Required for booting recovery partitions with 10.7 through 10.9. 10.10 and newer do not require this
-
-**Kexts**:
-
-The main ones are as follows:
-
-* [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases) **or** FakeSMC
-* [Lilu](https://github.com/acidanthera/Lilu/releases)
-* [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)
-* [AppleALC](https://github.com/acidanthera/AppleALC/releases) **or** [VoodooHDA](https://sourceforge.net/projects/voodoohda/)
-* [telemetrap.kext](https://forums.macrumors.com/threads/mp3-1-others-sse-4-2-emulation-to-enable-amd-metal-driver.2206682/post-28447707)
-
-Ethernet gets a bit more complicated as we're going into the depths of legacy hackintosh kexts, so support on Catalina can be a bit sketchy:
-
-* [AppleIntelE1000e](https://github.com/chris1111/AppleIntelE1000e/releases)
-* [IntelMausi](https://github.com/acidanthera/IntelMausi/releases)
-* [RealtekRTL8100](https://github.com/Mieze/RealtekRTL8100)
-* [RealtekRTL8111](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases)
-* [AtherosE2200Ethernet](https://github.com/Mieze/AtherosE2200Ethernet/releases)
